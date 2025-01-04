@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Fit Analyzer</title>
+  <link  rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+  <style>
+    /* .result { margin-top: 15px; padding: 10px; border: 1px solid #ccc; }
+    .error { color: red; }
+    .success { color: green; } */
+    .hide { display: none; }
+</style>
+</head>
+<body class="max-w-max p-4" style="width: 300px;">
+  <div id="authContainer">
+    <!-- Login Form -->
+    <div id="loginForm" class="space-y-4">
+      <div>
+        <div>
+          <h3 class="text-center mx-1 mb-2">
+              Sign in to your account
+          </h3>
+          </div>
+          <form>
+              <div>
+                  <div>
+                      <label for="email" class="form-label">Email address</label>
+                      <input id="loginEmail" name="email" class="form-control" type="email" required placeholder="Email address">
+                  </div>
+                  <div>
+                      <label for="password">Password</label>
+                      <input id="loginPassword" name="password" class="form-control" type="password" required placeholder="Password">
+                  </div>
+              </div>
+
+              <div>
+                  <a href="#" class="my-5">
+                      Forgot your password?
+                  </a>
+              </div>
+
+              <div class="text-center">
+                  <button class="btn btn-primary" id="loginBtn">
+                      Login
+                  </button>
+              </div>
+          </form>
+
+          <div class="text-center my-2">
+              <p>
+                  Don't have an account? 
+                  <button class="btn-link btn-xs" style="background: none !important; border: none;" id="showSignup">
+                      Sign up
+                  </button>
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signupForm" class="hide space-y-4">
+      <div class="max-w-md w-full space-y-8 p-8">
+        <div>
+            <h2 class="mt-6 text-center text-3xl font-extrabold">
+                Create your account
+            </h2>
+        </div>
+        <form class="mt-8 space-y-6">
+            <div class="space-y-4">
+                <label for="signupEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com">
+                
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword">
+                
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter phone number" pattern="[0-9]{10}" title="Phone number must be 10 digits">
+
+            </div>
+
+            <label for="country" class="form-label">Country</label>
+            <select class="form-select" id="country">
+              <option value="us">United States</option>
+              <option value="canada">Canada</option>
+              <option value="india">India</option>
+              <option value="uk">United Kingdom</option>
+              <option value="australia">Australia</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="degree" class="form-label">Degree</label>
+            <select class="form-select" id="degree">
+              <option value="bachelor">Bachelor's</option>
+              <option value="master">Master's</option>
+              <option value="phd">PhD</option>
+              <option value="diploma">Diploma</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="major" class="form-label">Major</label>
+            <input type="text" class="form-control" id="major" placeholder="major">
+            
+            
+            <label for="university" class="form-label">University/School</label>
+            <select class="form-select" id="university">
+              <option value="harvard">Harvard University</option>
+              <option value="mit">MIT</option>
+              <option value="stanford">Stanford University</option>
+              <option value="other">Other</option>
+            </select>
+
+            <!-- Start Date Picker -->
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="startDate">
+          
+            <!-- End Date Picker -->
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="endDate">
+            
+            <label for="visaStatus" class="form-label">Visa Status</label>
+            <select id="visaStatus" class="form-select">
+              <option value="citizen">Citizen/Permanent Resident</option>
+              <option value="h1b">H1B Visa</option>
+              <option value="f1">F1 Visa/OPT</option>
+              <option value="other">Other</option>
+            </select>
+
+            <div>
+                <button id="signupBtn" class="btn btn-primary my-2">
+                    Create Account
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center">
+            <p class="text-sm text-gray-600">
+                Already have an account? 
+                <button class="font-medium btn-link btn-xs" style="background: none !important; border: none;" id="showLogin">
+                    Sign in
+                </button>
+            </p>
+        </div>
+    </div>
+  </div>
+
+  <script src="../js/auth.js"></script>
+</body>
+</html>

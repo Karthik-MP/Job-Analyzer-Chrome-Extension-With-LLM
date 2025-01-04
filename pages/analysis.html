@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Analysis</title>
+  <link  rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+  <style>
+    /* .result { margin-top: 15px; padding: 10px; border: 1px solid #ccc; }
+    .error { color: red; }
+    .success { color: green; } */
+    .hide { display: none; }
+  </style>
+  <style>
+    /* Include custom CSS */
+    .analyse-btn {
+        width: 80px; 
+        height: 80px; 
+        border-radius: 50%;
+        background-color: #75a9e0; 
+        color: white;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .analyse-btn:hover {
+        transform: scale(1.1); /* Scale up on hover */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .analyse-btn:active {
+        transform: scale(0.95); /* Slight shrink on click */
+    }
+
+    /* Optional animation */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .analyse-btn.pulsing {
+        animation: pulse 1s infinite;
+    }
+  </style>
+</head>
+<body class="w-[600px] min-h-[400px] p-4">
+  <div id="mainContainer">
+    <!-- Header -->
+    <header class="mb-6">
+      <div class="d-flex flex-row-reverse">
+        <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+      </div>
+      <h4 class="font-bold text-center">Job Analysis</h4>
+    </header>
+
+    <!-- Analysis Controls -->
+    <div class="my-5 space-y-4 d-flex justify-content-center" >
+      <button class="analyse-btn pulsing text-center" id="analyzeBtn">
+        Analyse
+      </button>
+      
+      <div id="loadingState" class="hide">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+        <p class="text-center mt-2 text-gray-600">Analyzing job description...</p>
+      </div>
+    </div>
+
+    <!-- Analysis Results -->
+    <div id="resultsContainer" class="hide space-y-6">
+      <!-- Job Overview -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-3">Job Overview</h2>
+        <div class="space-y-2">
+          <p id="jobTitle" class="text-gray-800"></p>
+          <p id="company" class="text-gray-600"></p>
+          <p id="location" class="text-gray-600"></p>
+          <p id="salary" class="text-green-600 font-medium"></p>
+        </div>
+      </div>
+
+      <!-- Match Score -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-3">Match Score</h2>
+        <div class="relative pt-1">
+          <div id="matchScoreContainer" class="flex items-center justify-between">
+            <div class="text-3xl font-bold text-blue-600">0%</div>
+            <canvas id="matchChart" width="200" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Analysis -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-3">Detailed Analysis</h2>
+        <div class="space-y-4">
+          <!-- Skills Match -->
+          <div>
+            <h3 class="text-md font-medium mb-2">Skills Match</h3>
+            <div id="skillsMatch" class="space-y-2"></div>
+          </div>
+
+          <!-- Requirements -->
+          <div>
+            <h3 class="text-md font-medium mb-2">Requirements</h3>
+            <div id="requirements" class="space-y-2">
+              <div id="visaRequirement" class="flex items-center space-x-2"></div>
+              <div id="educationRequirement" class="flex items-center space-x-2"></div>
+              <div id="experienceRequirement" class="flex items-center space-x-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex space-x-4">
+        <button id="saveJobBtn" class="flex-1 bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
+          Save Job
+        </button>
+        <button id="exportBtn" class="flex-1 bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-700">
+          Export Report
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/jobAnalysis.js"></script>
+</body>
+</html>
